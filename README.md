@@ -8,7 +8,8 @@ This is a meta-repository of my work on Polygon Tokyo Hack.
 - Contract: https://github.com/iddao/solidity-wallet
 - App: https://github.com/iddao/rn-wallet
 - Computation state generator PoC: https://github.com/my-number/streamsha
-
+- Card Protocol: https://github.com/my-number/myna
+- Presentation & image: https://docs.google.com/presentation/d/1qtEjAI9jIm2Svst6eqcsRLGZEKNVNn5jOwcVUKQnFo0/edit#slide=id.g1367000ec1d_0_39
 ## Project Name
 
 ID DAO
@@ -35,6 +36,7 @@ Your ID card also become hardware wallet.
 
 ## Technology used
 
+
 ### ISO 7816, ISO 14443 
 
 aka Smart card/NFC.
@@ -42,6 +44,8 @@ aka Smart card/NFC.
 Used for reading national ID card. Currently Japanese "my number" Card is supported. In the future other cards will be supported.
 
 Install app, touch the card to smartphone, get connected.
+
+Protocol implementation: https://github.com/my-number/myna
 
 ### WalletConnect
 
@@ -83,6 +87,8 @@ Japanese regulation says that "serial number" field in digital certificate must 
 1. Sync computation state to on-chain contract
 1. Continue on contract
 1. Check if both on-chain and off-chain result is equal
+
+See image explanation at https://docs.google.com/presentation/d/1qtEjAI9jIm2Svst6eqcsRLGZEKNVNn5jOwcVUKQnFo0/edit#slide=id.g1367000ec1d_0_39
 
 ## Polygonscan
 
