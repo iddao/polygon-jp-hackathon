@@ -2,6 +2,13 @@
 
 This is a meta-repository of my work on Polygon Tokyo Hack.
 
+## Resource Link
+
+- Website: https://iddao.mynumber.dev
+- Contract: https://github.com/iddao/solidity-wallet
+- App: https://github.com/iddao/rn-wallet
+- Computation state generator PoC: https://github.com/my-number/streamsha
+
 ## Project Name
 
 ID DAO
@@ -62,3 +69,50 @@ This precompiled contract solves it with each variable can have arbitrary size o
 $${b}^{e}\mod m (b,e,m \in \mathbb{N}) $$
 
 By this, the contract can verify RSA signature cheap.
+
+### React Native
+
+To read NFC, I made a native app with React Native.
+
+### Privacy-preserving verification algorithm
+
+Japanese regulation says that "serial number" field in digital certificate must not be published. So, I made a verification algorithm.
+
+1. Split certificate into two.
+1. Compute verification for first part in client machine
+1. Sync computation state to on-chain contract
+1. Continue on contract
+1. Check if both on-chain and off-chain result is equal
+
+## Polygonscan
+
+https://mumbai.polygonscan.com/address/0xf3144296909cbeb9bfdc878cdf458ae2ecfea1a8#code
+
+## Challenges faced
+
+### Connection issues
+The WalletConnect's connection was too unstable. Debugging was so hard. 
+
+### The way to synchronize the components
+
+Mobile App is consisted with three components: WalletConnect Adapter, NFC Manager, React View.
+It was difficult to synchronize them while maintaining clean and React-ish code. 
+
+### Contract wallet
+
+I want to make the contract general-purpose. To do so, I implemented modified version of ERC-712 for transaction data.
+
+### RSA validation
+
+Solidity can't handle EIP-198 yet. So I needed to write an assembly code. Organizing integer in EVM's memory was difficult.
+
+### Legal issues
+
+Japanese regulation about cryptocurrency and technology is serious.
+So I could not publish the some of the source code, such as solidity version of verification algorithm.
+I will publish after receiving official approvals. 
+
+### Privacy-preserving verification algorithm
+
+I made an original algorithm and implemented it. 
+
